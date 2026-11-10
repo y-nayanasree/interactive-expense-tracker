@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Expense Tracker to manage, categorize and monitor daily expenses.">
+    <title>SpendWise | Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="brand">
+        <span class="brand-icon">₹</span>
+        <span>SpendWise</span>
+    </div>
+    <p>Personal Finance Dashboard</p>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <div>
+            <p class="subtitle">YOUR MONEY, YOUR CONTROL</p>
+            <h1>Expense Tracker</h1>
+            <p>Track your spending and manage your finances smartly.</p>
+        </div>
+        <div class="date-display" id="todayDate"></div>
+    </section>
+
+    <section class="summary">
+        <div class="summary-card">
+            <span>Total Expenses</span>
+            <h2 id="totalAmount">₹0.00</h2>
+            <small>All recorded expenses</small>
+        </div>
+
+        <div class="summary-card">
+            <span>Total Transactions</span>
+            <h2 id="totalCount">0</h2>
+            <small>Recorded entries</small>
+        </div>
+
+        <div class="summary-card">
+            <span>Highest Expense</span>
+            <h2 id="highestAmount">₹0.00</h2>
+            <small>Single transaction</small>
+        </div>
+    </section>
+
+    <section class="main-grid">
+
+        <div class="panel form-panel">
+            <div class="panel-heading">
+                <h2 id="formTitle">Add New Expense</h2>
+                <span>＋</span>
+            </div>
+
+            <form id="expenseForm">
+
+                <label for="description">Expense Description</label>
+                <input type="text" id="description"
+                       placeholder="e.g. Grocery shopping" required maxlength="60">
+
+                <label for="amount">Amount (₹)</label>
+                <input type="number" id="amount"
+                       placeholder="Enter amount" min="0.01"
+                       step="0.01" required>
+
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Education">Education</option>
+                    <option value="Health">Health</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="expenseDate">Expense Date</label>
+                <input type="date" id="expenseDate" required>
+
+                <div class="form-buttons">
+                    <button type="submit" class="primary-btn" id="submitBtn">
+                        Add Expense
+                    </button>
+                    <button type="button" class="cancel-btn"
+                            id="cancelEdit" hidden>
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="panel list-panel">
+            <div class="panel-heading">
+                <h2>Expense History</h2>
+                <span>◷</span>
+            </div>
+
+            <div class="filters">
+                <div>
+                    <label for="categoryFilter">Category</label>
+                    <select id="categoryFilter">
+                        <option value="All">All Categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Education">Education</option>
+                        <option value="Health">Health</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="startDate">From Date</label>
+                    <input type="date" id="startDate">
+                </div>
+
+                <div>
+                    <label for="endDate">To Date</label>
+                    <input type="date" id="endDate">
+                </div>
+
+                <button type="button" id="clearFilters" class="clear-btn">
+                    Clear Filters
+                </button>
+            </div>
+
+            <div class="expense-list" id="expenseList">
+                <div class="empty-state">
+                    <span>₹</span>
+                    <h3>No expenses yet</h3>
+                    <p>Add your first expense to get started.</p>
+                </div>
+            </div>
+
+            <div class="filtered-total">
+                <span>Filtered Total</span>
+                <strong id="filteredTotal">₹0.00</strong>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="panel insights">
+        <h2>Category Summary</h2>
+        <div id="categorySummary" class="category-summary">
+            <p>No category data available.</p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 SpendWise | Personal Expense Management</p>
+    <p>Manage Smart. Spend Wisely.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
